@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .gravatar {
+   margin-top: 0.2em;
+   margin-right: 0.5em;
+   border-radius: 0.2em;
+ }
+
+ .flash {
+   margin-top: 0.5em;
+  //  margin-bottom: 0.2em;
+
+ }
+
+ .alert {
+   text-align: center;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+ }
+
+ .notice {
+   text-align: center;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+ }
