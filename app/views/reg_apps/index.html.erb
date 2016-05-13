@@ -1,0 +1,18 @@
+<h1>Registered Applications</h1>
+<br/>
+<div class="row">
+  <div class="col-md-8">
+
+    <% @reg_apps.each do |app| %>
+      <div class="media">
+        <div class="media-body">
+          <%= link_to app.name, user_reg_app_path(current_user, app)  %>
+        </div>
+      </div>
+    <% end %>
+    <br/>
+
+      <%= link_to "Register New App", new_user_reg_app_path, class: 'btn btn-primary' %>
+
+  </div>
+</div>

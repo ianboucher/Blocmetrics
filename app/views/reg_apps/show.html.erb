@@ -1,0 +1,15 @@
+<h1><%= @reg_app.name %></h1>
+
+ <div class="row">
+   <div class="col-md-8">
+     <h4><%= @reg_app.url %></h4>
+
+     <!-- Code to display events & data related to reg_app here -->
+
+   </div>
+ </div>
+
+ <%= link_to "Edit App Details", edit_user_reg_app_path, class: 'btn btn-primary' %>
+
+ <%= link_to "De-Register App", user_reg_app_path, method: :delete, class: 'btn btn-danger',
+    data: { confirm: "Are you sure you want to remove this app?" } %>

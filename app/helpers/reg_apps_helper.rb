@@ -1,0 +1,2 @@
+module RegAppsHelper
+end
