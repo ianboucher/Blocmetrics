@@ -1,7 +1,7 @@
 class RegAppsController < ApplicationController
 
   def index
-    @reg_apps = RegApp.all
+    @reg_apps = current_user.reg_apps.all
   end
 
   def show
@@ -35,7 +35,7 @@ class RegAppsController < ApplicationController
 
     if @reg_app.save
       flash[:notice] = "App was updated successfully"
-      redirect_to user_reg_app
+      redirect_to user_reg_app_path
     else
       flash[:alert] = "There was an error updating the App. Please try again."
       render :edit

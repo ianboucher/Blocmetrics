@@ -29,7 +29,6 @@
       <li><%= link_to "About", about_path %></li>
 
       <% if user_signed_in? %>
-        <li><%= link_to "Dashboard", user_reg_apps_path(current_user) %></li>
         <div class="pull-right user-info">
           <%= gravatar_url(current_user, 35) %>
           <div class="pull-right">
