@@ -17,6 +17,7 @@ gem 'quiet_assets'
 gem 'pry-rails'
 gem 'figaro', '1.0'
 gem 'devise'
+gem 'faker'
 
 group :production do
   gem 'pg'

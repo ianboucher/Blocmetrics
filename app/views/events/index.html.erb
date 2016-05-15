@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-8">
+    <br/>
+
+    <table class="table">
+      <tr>
+        <th>Category</th><th>Action</th><th>Label</th><th>Value</th>
+      </tr>
+      <!-- I somehow need to funnel the key/category name from my link_to in the
+      reg_app show view corresponding to the category the user clicks on.-->
+      <% @events.keys.each do |key| %>
+        <% @events[key].each do |array| %>
+        <tr>
+          <td><%= link_to array.category, user_reg_app_event_path(current_user, @reg_app, array)%></td>
+          <td><%= array.action %></td>
+          <td><%= array.label %></td>
+          <td><%= array.value %></td>
+        </tr>
+
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

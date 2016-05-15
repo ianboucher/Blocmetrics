@@ -6,6 +6,8 @@ class RegAppsController < ApplicationController
 
   def show
     @reg_app = RegApp.find(params[:id])
+    @events = @reg_app.events.group_by(&:category)
+    # binding pry
   end
 
   def new

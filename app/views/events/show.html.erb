@@ -1,0 +1,21 @@
+<h1>Events Details</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3><%= @event.category %></h3>
+    <br/>
+
+    <ul>
+      <li><h4>Action: <%= @event.action %></h4></li>
+      <li><h4>Label: <%= @event.label %></h4></li>
+      <li><h4>Value: <%= @event.value %></h4></li>
+    </ul>
+
+  </div>
+</div>
+
+<br/>
+<%= link_to "Edit Event", edit_user_reg_app_event_path, class: 'btn btn-primary' %>
+
+<%= link_to "Delete Event", user_reg_app_event_path, method: :delete, class: 'btn btn-danger',
+   data: { confirm: "Are you sure you want to delete this event?" } %>
