@@ -13,9 +13,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'quiet_assets'
-gem 'pry-rails'
-gem 'figaro', '1.0'
 gem 'devise'
 gem 'faker'
 
@@ -29,6 +26,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'pry-rails'
+  gem 'quiet_assets'
+  gem 'figaro', '1.0'
 end
 
 group :development, :test do

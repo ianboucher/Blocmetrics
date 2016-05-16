@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   get 'events/destroy'
 
-# permitting custom user in the Devise registrations controller didn't work until
-# I added the custom routes to the Devise defaults - I don't understand why...
+# The controller must be specified here otherwise Devise uses the default controllers
+# and changes to the custom parameters in the registrations controller get filtered
+# out.
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users, only: [:show] do
@@ -25,6 +26,11 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
 
   root 'welcome#index'
+
+  namespace :api, defaults: { format: :json } do
+    match '/events', to: 'events#preflight', via: [:options]
+    resources :events, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 
