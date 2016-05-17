@@ -15,14 +15,17 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'faker'
+gem 'chartkick'
+gem 'groupdate'
+gem 'pg'
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
   gem 'rails_12factor'
 end
 # Use sqlite3 as the database for Active Record
 group :development do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'spring-commands-rspec'

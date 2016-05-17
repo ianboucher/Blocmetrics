@@ -1,3 +1,5 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+
 <h1><%= @reg_app.name %></h1>
 
 <div class="pull-right">
@@ -12,10 +14,17 @@
      <h4><%= @reg_app.url %></h4>
      <br/>
 
-     <h4>There were <%= @reg_app.events.count %> <%= link_to "Total", user_reg_app_events_path(current_user, @reg_app) %> events including:</h4><br/>
+     <h4>There were <%= @reg_app.events.count %> <%= link_to "Total",
+        user_reg_app_events_path(current_user, @reg_app) %> events including:</h4><br/>
 
      <% @events.each do |key, value| %>
-      <h5><%= value.count %> events in the <%= link_to key, user_reg_app_events_path(current_user, @reg_app) %> category</h5>
+      <h5><%= value.count %> events in the <%= link_to key,
+        user_reg_app_events_path(current_user, @reg_app) %> category</h5>
      <% end %>
    </div>
  </div>
+ <br/>
+
+ <%= pie_chart @reg_app.events.group(:category).count %>
+
+ <%= line_chart @reg_app.events.group_by_minute(:created_at).count %>
