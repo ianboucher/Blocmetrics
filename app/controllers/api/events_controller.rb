@@ -5,7 +5,7 @@ class API::EventsController < ApplicationController
   # disabled.
   skip_before_action :verify_authenticity_token
 
-  before_action :set_access_control_headers
+  before_filter :set_access_control_headers
 
   # Configure CORS to ensure cross-origin requests will be permitted
   def set_access_control_headers
@@ -21,6 +21,7 @@ class API::EventsController < ApplicationController
   # Find the reg_app that matches the source of the API request.
   def create
     @reg_app = RegApp.find_by(url: request.env['HTTP_ORIGIN'])
+    # binding.pry
 
     if @reg_app.nil?
       render json: "Unregistered application", status: :unprocessable_entity

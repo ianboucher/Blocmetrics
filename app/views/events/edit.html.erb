@@ -1,2 +1,35 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<h1>Edit Details for this Event</h1>
+
+<div class="row">
+  <div class="col-md-8">
+
+    <%= form_for user_reg_app_event_path(params), method: :put do |f| %>
+
+      <%= form_group_tag(@event.errors[:category]) do %>
+        <%= f.label :category %>: <%= @event.category %>
+        <%= f.text_field :category, class: 'form-control', placeholder: "Edit category" %>
+      <% end %>
+
+      <%= form_group_tag(@event.errors[:action]) do %>
+        <%= f.label :action %>: <%= @event.action %>
+        <%= f.text_field :action, class: 'form-control', placeholder: "Edit action" %>
+      <% end %>
+
+      <%= form_group_tag(@event.errors[:label]) do %>
+        <%= f.label :label %>: <%= @event.label %>
+        <%= f.text_field :label, class: 'form-control', placeholder: "Edit label" %>
+      <% end %>
+
+      <%= form_group_tag(@event.errors[:value]) do %>
+        <%= f.label :value %>: <%= @event.value %>
+        <%= f.text_field :value, class: 'form-control', placeholder: "Edit value - enter number between 1 and 10" %>
+      <% end %>
+
+      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= link_to "Cancel", user_reg_app_event_path, class: 'btn btn-primary' %>
+
+    <% end %>
+
+
+  </div>
+</div>
