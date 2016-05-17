@@ -1,31 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To enable event analytics with Blocmetrics, register your app name and it's URL
+in Blocmetrics itself and then insert the following code in the `application.js`
+file of your app:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
 ```
 var blocmetrics = {};
   blocmetrics.report = function(eventCategory, eventAction, eventLabel){
@@ -36,3 +14,17 @@ var blocmetrics = {};
     request.send(JSON.stringify(event));
 };
 ```
+Then add the following code to specify the events you would like to track and
+the attributes you would like to give them.
+
+$(document).ready(function() {
+  $('#js-your-element-id').yourEventHandler(function(event){
+    blocmetrics.report(Your Category, 'Your Action', 'Your Label');
+  })
+  $('#js-example-id').click(function(event){
+    blocmetrics.report(event.target.id, 'User click', 'Example Label');
+  })
+  $('#js-sign-out').click(function(event){
+    blocmetrics.report(event.target.id, 'User click', 'Sign-Out');
+  })
+});

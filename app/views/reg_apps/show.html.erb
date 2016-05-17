@@ -27,4 +27,5 @@
 
  <%= pie_chart @reg_app.events.group(:category).count %>
 
- <%= line_chart @reg_app.events.group_by_minute(:created_at).count %>
+ <%= line_chart @reg_app.events.group_by_hour(:created_at).count,
+    xtitle: "Time [hours]", ytitle: "No. of Events" %>

@@ -37,7 +37,8 @@ actions = ["Play", "Submit", "Home", "View", "Download", "Click"]
   action:      actions.sample,
   label:       Faker::Commerce.product_name,
   value:       rand(10),
-  reg_app:     reg_apps.sample
+  reg_app:     reg_apps.sample,
+  created_at:  Faker::Time.between(2.days.ago, Date.today, :all)
   )
 end
 
